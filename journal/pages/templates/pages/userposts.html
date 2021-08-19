@@ -1,0 +1,14 @@
+{% extends 'pages/base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+{% include 'pages/_navbar.html' %}
+<h2> Showing posts for {{user}} </h2>
+
+{% for blog in user.dayjournal.all %}
+<h2> {{blog.prompt_1 }} </h2>
+{% endfor %}
+{% endblock %}
