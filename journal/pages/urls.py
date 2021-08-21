@@ -12,5 +12,6 @@ urlpatterns = [
     path('evening/', views.eveningview, name='evening'),
     path('saveevening/', views.saveeveningview, name='saveevening'),
     path('<str:username>/', views.userposts, name='userposts'),
+    path('<str:username>/', views.auserposts, name='auserposts'),
 
 ]

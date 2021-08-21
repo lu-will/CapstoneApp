@@ -11,10 +11,10 @@ var currYear = (new Date()).getFullYear();
 
 $(document).ready(function() {
   $(".datepicker").datepicker({
-    defaultDate: new Date(currYear-5,1,31),
+    defaultDate: new Date(),
     // setDefaultDate: new Date(2000,01,31),
-    maxDate: new Date(currYear-5,12,31),
-    yearRange: [1928, currYear-5],
+    // maxDate: new Date(currYear),
+    // yearRange: [1928, currYear],
     format: "yyyy-mm-dd"    
   });
 });

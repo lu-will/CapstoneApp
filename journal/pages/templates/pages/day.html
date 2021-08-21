@@ -1,58 +1,68 @@
 {% extends 'pages/base.html' %}
 
-{% block title %}
-
-{% endblock %}
+{% block title %} {{user}} {% endblock %}
 
 {% block content %}
-{% include 'pages/_navbar.html' %}
+<div class="#fafafa grey lighten-5">
+
+    {% include 'pages/_navbar.html' %}
     <br>
     <br>
-<div class="container">
+    <div class="container">
 
-    <form action="{% url 'pages:saveday' %}" method="POST">
-        {% csrf_token %}
-        <input type=text name="datetime" placeholder="Date Created" class="datepicker">
-        <!-- <input type="date" name="datetime" placeholder="Date Created" required> -->
-        <input type="text" name="prompt_1" placeholder="I am grateful for..." required>
-        <input type="text" name="prompt_2" placeholder="What would make today great?" required>
-        <input type="text" name="prompt_3" placeholder="Daily affirmation. I am..." required>
-        <button class=" black-text btn waves-effect waves-light" type="submit">Create</button>
+        <form action="{% url 'pages:saveday' %}" method="POST">
+            {% csrf_token %}
+            <input type=text name="datetime" placeholder="Date Created" class="datepicker">
+            <!-- <input type="date" name="datetime" placeholder="Date Created" required> -->
+            <input type="text" name="prompt_1" placeholder="I am grateful for..." required>
+            <input type="text" name="prompt_2" placeholder="What would make today great?" required>
+            <input type="text" name="prompt_3" placeholder="Daily affirmation. I am..." required>
+            <button class=" black-text btn waves-effect waves-light" type="submit">Create</button>
 
-    </form>
+        </form>
 
-    <br>
-    <br>
-
-    <!-- <div>
-        <h4> Previous Day Entries: </h4>
-
-        {% for post in dayposts %}
-        <p>{{post.date}}</p>
-        <p>{{post.prompt_1}}</p>
-        <p>{{post.prompt_2}}</p>
-        <p>{{post.prompt_3}}</p>
-        {% endfor %}
-    </div> -->
+        <br>
+        <br>
 
 
-    <ul class="collapsible">
-        {% for post in dayposts %}
-        <li>
-            <div class="collapsible-header"><i class="material-icons">brightness_low</i>{{post.date}}</div>
-            <div class="collapsible-body">
-                <span>
-                <p>{{post.prompt_1}}</p>
-                <p>{{post.prompt_2}}</p>
-                <p>{{post.prompt_3}}</p>
-                </span>
-            </div>
-        </li>
-        {% endfor %}
-    </ul>
+
+        <ul class="collapsible">
+            {% for u in user.dayjournal.all %}
+            <li>
+                <div class="collapsible-header"><i class="material-icons">brightness_low</i>{{u.date}} - {{u.user}}
+                </div>
+                <div class="collapsible-body">
+                    <span>
+                        <p> {{u.prompt_1}} </p>
+                        <p> {{u.prompt_2}} </p>
+                        <p> {{u.prompt_3}} </p>
+                        {% for v in user.dayjournal.currentuser.all%}
+                        <h1> {{v.prompt_1}}</h1>
+                    </span>
+                </div>
+            </li>
+            {% endfor %}
+            {% endfor %}
+        </ul>
 
 
+    </div>
 </div>
 
 
 {% endblock %}
+
+<!-- <ul class="collapsible">
+    {% for post in dayposts %}
+    <li>
+        <div class="collapsible-header"><i class="material-icons">brightness_low</i>{{post.date}}</div>
+        <div class="collapsible-body">
+            <span>
+                <p>{{post.prompt_1}}</p>
+                <p>{{post.prompt_2}}</p>
+                <p>{{post.prompt_3}}</p>
+            </span>
+        </div>
+    </li>
+    {% endfor %}
+</ul> -->

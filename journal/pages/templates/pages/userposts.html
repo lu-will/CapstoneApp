@@ -1,14 +1,29 @@
 {% extends 'pages/base.html' %}
 
-{% block title %}
-
-{% endblock %}
-
 {% block content %}
-{% include 'pages/_navbar.html' %}
-<h2> Showing posts for {{user}} </h2>
 
-{% for blog in user.dayjournal.all %}
-<h2> {{blog.prompt_1 }} </h2>
-{% endfor %}
+<p> Examples </p>
+
+<div class="container">
+    
+    <ul class="collapsible">
+        {% for u in user.dayjournal.all %}
+        <li>
+            <div class="collapsible-header"><i class="material-icons">brightness_2</i>{{u.date}} - {{u.user}}</div>
+                <div class="collapsible-body">
+                    <span>
+                        <p> {{u.prompt_1}} </p>
+                        <p> {{u.prompt_2}} </p>
+                        <p> {{u.prompt_3}} </p>
+                        {% for v in user.dayjournal.currentuser.all%}
+                        <h1> {{v.prompt_1}}</h1>
+                    </span>
+                </div>
+        </li>
+        {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+
+
 {% endblock %}

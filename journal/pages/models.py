@@ -15,8 +15,6 @@ class day(models.Model):
         return f'{self.date}'
 
 # Model for evening prompts
-
-
 class evening(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT,
                              related_name='nightjournal', blank=True, null=True)
@@ -35,3 +33,5 @@ class User(models.Model):
     last_name = models.CharField(max_length=150)
     password = models.CharField(max_length=150)
     email = models.CharField(max_length=150)
+
+

@@ -9,7 +9,9 @@
 </head>
 
 <body>
+
     {% include 'pages/_navbar.html' %}
+
     <form action="{% url 'pages:login' %}" method="POST" class="col s12 container">
         {% csrf_token %}
         <div class="row">
@@ -25,7 +27,6 @@
                 <button class="btn waves-effect waves-light" type="submit">Login</button>
             </div>
         </div>
-        <!-- <a href="{% url 'pages:register' %}"> or register</a> -->
     </form>
 </body>
 

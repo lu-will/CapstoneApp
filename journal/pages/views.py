@@ -12,14 +12,13 @@ def home(request):
     }
     return render(request, 'pages/index.html', context)
 
-# Login
+# Login user
 
 
 def login_user(request):
 
     if request.method == "GET":
         return render(request, 'pages/login.html')
-
     elif request.method == "POST":
         print('FORM', request.POST)
         form = request.POST
@@ -32,15 +31,16 @@ def login_user(request):
 
         return HttpResponseRedirect(reverse('pages:login'))
 
-# Logout
+# Logout user
 
 
 def logout_user(request):
     logout(request)
     return HttpResponseRedirect(reverse('pages:home'))
 
-
 # Register new user
+
+
 def register(request):
     if request.method == "GET":
         return render(request, 'pages/register.html')
@@ -52,16 +52,19 @@ def register(request):
         first_name = form['first_name']
         last_name = form['last_name']
 
+        # Evening = evening()
+        # Evening.user = request.user
+        # Evening.save()
+
         user = User.objects.create_user(
             username, email, password, first_name=first_name, last_name=last_name)
 
-        login(request, user)
+        # login(request, user)
 
         return HttpResponseRedirect(reverse('pages:register'))
 
 
 # Day Journal Entries
-
 
 def dayview(request):
 
@@ -71,15 +74,6 @@ def dayview(request):
     }
 
     return render(request, 'pages/day.html', context)
-
-# Lists the day entries for the index page
-
-# def listdayentries(request):
-#     dayposts = day.objects.all()
-#     context = {
-#         'dayposts': dayposts
-#     }
-#     return render(request, 'pages/index.html', context)
 
 
 # Saved day entries
@@ -102,6 +96,7 @@ def savedayview(request):
         dayposts.prompt_1 = prompt_1
         dayposts.prompt_2 = prompt_2
         dayposts.prompt_3 = prompt_3
+        dayposts.user = request.user
         dayposts.save()
 
         context = {
@@ -131,14 +126,16 @@ def saveeveningview(request):
         date = form['datetime']
         prompt_1 = form['prompt_1']
         prompt_2 = form['prompt_2']
-        prompt_3 = form['prompt_3']
+        # prompt_3 = form['prompt_3']
         print(form)
 
         eveningposts = evening()
         eveningposts.date = date
         eveningposts.prompt_1 = prompt_1
         eveningposts.prompt_2 = prompt_2
-        eveningposts.prompt_3 = prompt_3
+        eveningposts.user = request.user
+        eveningposts.save()
+        # eveningposts.prompt_3 = prompt_3
         eveningposts.save()
 
         context = {
@@ -153,5 +150,17 @@ def userposts(request, username):
     user = get_object_or_404(User, username=username)
     context = {
         'user': user
+    }
+    return render(request, 'pages/userposts.html', context)
+
+# Unique user posts
+
+
+def auserposts(request, username):
+    usertest = get_object_or_404(User, username=username)
+    currentuser = request.user
+    context = {
+        'usertest': usertest,
+        'currentuser ': currentuser,
     }
     return render(request, 'pages/userposts.html', context)

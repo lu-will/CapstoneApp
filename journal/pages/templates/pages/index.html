@@ -1,48 +1,56 @@
 {% extends 'pages/base.html' %}
 
-{% block title %}
-
-{% endblock %}
+{% block title %} {{user}} {% endblock %}
 
 {% block content %}
-{% include 'pages/_navbar.html' %}
-<div class="container">
-    <!-- <h4> Welcome {{request.user}}! </h4> -->
-    <h5> Your personal Gratitude Journal! </h5>
-    <br>
-    <h5> Get Started: </h5>
-    <br>
-    <h5> What is a gratitude Journal?</h5>
-    <br>
-    <div class="video-container responsive-video">
-        <iframe width="600" height="480" src="http://www.oprah.com/video_embed.html?article_id=37473" frameborder="0"
-            allowfullscreen></iframe>
-    </div>
-    <br>
-    <h5> Tips for keeping a Gratitude Journal </h5>
-    <br>
-    <li> <b>Don’t just go through the motions.</b> Research by psychologist Sonja Lyubomirsky and others suggests that
-        journaling is more effective if you first make the conscious decision to become happier and more grateful.
-        “Motivation to become happier plays a role in the efficacy of journaling,” says Emmons.</li>
-    <li><b>Go for depth over breadth.</b> Elaborating in detail about a particular thing for which you’re grateful
-        carries more
-        benefits than a superficial list of many things.</li>
-    <li><b>Get personal. </b> Focusing on people to whom you are grateful has more of an impact than focusing on things
-        for
-        which you are grateful.</li>
-    <li><b>Try subtraction, not just addition.</b> One effective way of stimulating gratitude is to reflect on what your
-        life
-        would be like without certain blessings, rather than just tallying up all those good things.</li>
-    <li><b>Savor surprises. </b> Try to record events that were unexpected or surprising, as these tend to elicit
-        stronger
-        levels of gratitude.</li>
-    <li><b>Don’t overdo it.</b> Writing occasionally (once or twice per week) is more beneficial than daily journaling.
-    </li>
-    <br>
-    <h5> Ready to get started? Select an option from the navigation bar.</h5>
 
-    <br><br><br><br>
-    <!-- <h5> Select an option from the nav bar to begin </h5> -->
+
+<div class="#fafafa grey lighten-5">
+    {% include 'pages/_navbar.html' %}
+    <div class="container">
+        <!-- <h4> Welcome {{request.user}}! </h4> -->
+        <h5> Your personal Gratitude Journal </h5>
+        <br>
+        <h5> Get Started: </h5>
+        <br>
+        <h5> What is a gratitude Journal?</h5>
+        <br>
+        <div class="video-container responsive-video">
+            <iframe width="600" height="480" src="http://www.oprah.com/video_embed.html?article_id=37473"
+                frameborder="0" allowfullscreen></iframe>
+        </div>
+        <br>
+        <h5> Tips for keeping a Gratitude Journal </h5>
+        <br>
+        <li> <b>Don’t just go through the motions.</b> Research by psychologist Sonja Lyubomirsky and others suggests
+            that
+            journaling is more effective if you first make the conscious decision to become happier and more grateful.
+            “Motivation to become happier plays a role in the efficacy of journaling”.</li>
+        <br>
+        <li><b>Go for depth over breadth.</b> Elaborating in detail about a particular thing for which you’re grateful
+            carries more benefits than a superficial list of many things.</li>
+        <br>
+        <li><b>Get personal. </b> Focusing on people to whom you are grateful has more of an impact than focusing on
+            things
+            for which you are grateful.</li>
+        <br>
+        <li><b>Try subtraction, not just addition.</b> One effective way of stimulating gratitude is to reflect on what
+            your
+            life would be like without certain blessings, rather than just tallying up all those good things.</li>
+        <br>
+        <li><b>Savor surprises. </b> Try to record events that were unexpected or surprising, as these tend to elicit
+            stronger levels of gratitude.</li>
+        <br>
+        <li><b>Don’t overdo it.</b> Writing occasionally (once or twice per week) is more beneficial than daily
+            journaling.
+        </li>
+        <br>
+        <h5> Ready to get started? <a class="black-text waves-effect waves-light btn"
+                href="{% url 'pages:register' %}">Let's go!</a></h5>
+
+        <br><br><br><br>
+        <!-- <h5> Select an option from the nav bar to begin </h5> -->
+    </div>
 </div>
 
 {% endblock %}

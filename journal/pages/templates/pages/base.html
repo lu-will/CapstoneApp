@@ -9,6 +9,8 @@
   <title>{% block title %}{% endblock %}</title>
 
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+  <!--Import Google Icon Font-->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -18,6 +20,7 @@
   <!-- JS referencing static folder -->
   <script defer src="{% static 'pages/main.js' %}"></script>
 
+  <link rel="stylesheet" href="{% static 'pages/styles.css' %}">
 
 
 </head>
@@ -25,6 +28,8 @@
 <body>
 
   {% block content %}
+
+
   {% endblock %}
 
 </body>
