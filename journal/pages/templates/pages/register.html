@@ -1,18 +1,19 @@
 {% extends 'pages/base.html' %}
 
-{% block title %} Register {{user}} {% endblock %}
+{% block title %} 📝 New user registration {% endblock %}
 
 {% block content %}
 
-<div>
 
-    {% include 'pages/_navbar.html' %}
-    
-    <div class="row container">
-    
+{% include 'pages/_navbar.html' %}
+
+<div class="row container">
+    <h4> Create your new profile </h4>
+    <br>
+    <div class="col s7">
         <form action="{% url 'pages:register' %}" method="POST" class="col s12">
             {% csrf_token %}
-            <div class="row">
+            <div>
                 <div class="input-field col s6">
                     <input type="text" name="first_name" placeholder="First Name">
                 </div>
@@ -20,24 +21,36 @@
                     <input type="text" name="last_name" placeholder="Last Name">
                 </div>
             </div>
-            <div class="row">
+            <div>
                 <div class="col s12">
                     <input type="text" name="username" placeholder="Username" required>
                 </div>
             </div>
-            <div class="row">
+            <div>
                 <div class="col s12">
                     <input type="password" name="password" placeholder="Password" required>
                 </div>
             </div>
-            <div class="row">
+            <div>
                 <div class="col s12">
                     <input type="text" name="email" placeholder="Email" required>
                 </div>
             </div>
-            <button class = "btn waves-effect waves-light" type="submit">Register</button>
+            <button class="btn waves-effect waves-teal" type="submit"> Create account</button>
         </form>
     </div>
+    <div class="col s5">
+        <p>
+            <b>Welcome.</b> Create your Profile easily, safely, and securely here. Sign in, and join us. With a Profile you can
+            deepen your gratefulness practice in many ways:
+
+            <li>Write in your Private Gratitude Journal</li>
+            <li>Answer the Daily Question</li>
+            <li>Share Reflections on posts and resources</li>
+            <li>Keep track of all your comments and reflections</li>
+        </p>
+    </div>
 </div>
+
 
 {% endblock %}

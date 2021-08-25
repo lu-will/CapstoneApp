@@ -1,6 +1,6 @@
 {% extends 'pages/base.html' %}
 
-{% block title %} {{user}} {% endblock %}
+{% block title %} 📒 The 6 min journal {% endblock %}
 
 {% block content %}
 
@@ -8,19 +8,111 @@
 <div class="#fafafa grey lighten-5">
     {% include 'pages/_navbar.html' %}
     <div class="container">
-        <!-- <h4> Welcome {{request.user}}! </h4> -->
-        <h5> Your personal Gratitude Journal </h5>
+        <!-- <h4> Welcome {{request.user}}! </h4>
+
+        <h5 class="row col s6"> Your personal Gratitude Journal </h5>
         <br>
-        <h5> Get Started: </h5>
+        <h5 class="row col s6"> Get Started: </h5>
         <br>
         <h5> What is a gratitude Journal?</h5>
-        <br>
-        <div class="video-container responsive-video">
-            <iframe width="600" height="480" src="http://www.oprah.com/video_embed.html?article_id=37473"
-                frameborder="0" allowfullscreen></iframe>
+        <br> -->
+        <div class="row">
+            <h1 class="col s6"> Improve your life by practicing gratitude. </h1>
+            <br><br><br><br><br><br><br>
+            <img class="col s6"
+                src="https://c.pxhere.com/photos/e6/24/notebook_open_page_open_sand_pressed_flower-1410065.jpg!d"
+                alt="">
+        </div>
+        <div class="row">
+            <h4 class="col s6"> By journaling for just 6 minutes a day you can improve your overall wellbeing. </h4>
         </div>
         <br>
-        <h5> Tips for keeping a Gratitude Journal </h5>
+        <div class="row">
+            <h4 class="col s6"></h4>
+            <h4 class="col s6"> The benefits to journaling include....</h4>
+        </div>
+        <div class="row">
+            <h5 class="col s6"> <b>🥦 Improved Health. </b></h5>
+        </div>
+        <div class="row">
+            <h6 class="col s6">A five-minute a day gratitude journal can increase your long-term well-being by more
+                than 10%.</h6>
+        </div>
+        <div class="row">
+            <h5 class="col s6"> <b>😴 Improved Sleep. </b></h5>
+        </div>
+        <div class="row">
+            <h6 class="col s6">Gratitude increases sleep quality, reduces the time required to fall asleep, and
+                increases sleep duration. In other words, gratitude can help with insomnia.</h6>
+        </div>
+        <div class="row">
+            <h5 class="col s6"> <b> 💪 Emotional Resilence. </b></h5>
+        </div>
+        <div class="row">
+            <h6 class="col s6">Gratitude improves your optimism and optimism in turn makes you happier, improves your
+                health, and increases your lifespan.</h6>
+        </div>
+        <div class="row">
+            <h4 class="col s6"></h4>
+            <h4 class="col s6"> Not convinced?....Here are reviews from our users:</h4>
+        </div>
+        <br><br>
+        <div class="row">
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img
+                            src="https://thumbor.forbes.com/thumbor/960x0/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F611182f736d1dc35c8cf31d3%2FRick-and-Morty%2F960x0.jpg%3Ffit%3Dscale">
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <p>⭐️⭐️⭐️⭐️⭐️</p>
+                        <p> -Science Professor</p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img
+                            src="https://images-na.ssl-images-amazon.com/images/S/pv-target-images/f2bc44a9d75daf5b21e45cde9e96808ea899ee4bee518cb1fa41fe894eff0cbc._V_SX1080_.png">
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <p>⭐️⭐️⭐️⭐️⭐️</p>
+                        <p>- Highschool Student </p>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col s4">
+                <div class="card">
+                    <div class="card-image">
+                        <img
+                            src="https://static.wikia.nocookie.net/rickandmorty/images/2/21/Meeseeks_and_Destroy_6.png/revision/latest/scale-to-width-down/250?cb=20160913034003">
+                        <span class="card-title"></span>
+                    </div>
+                    <div class="card-content">
+                        <p>⭐️⭐️⭐️⭐️⭐️</p>
+                        <p> - Go Getter</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <h3> Ready to get started? </h3>
+        <br>
+        <h4>Woah</h4>
+        <br>
+        <h5>Wait a second</h5>
+        <br><br>
+        <h6>Slow down...</h6>
+
+        <br>
+        <h5> <b>First read:</b> Tips for keeping a Gratitude Journal </h5>
         <br>
         <li> <b>Don’t just go through the motions.</b> Research by psychologist Sonja Lyubomirsky and others suggests
             that
@@ -44,12 +136,11 @@
         <li><b>Don’t overdo it.</b> Writing occasionally (once or twice per week) is more beneficial than daily
             journaling.
         </li>
-        <br>
-        <h5> Ready to get started? <a class="black-text waves-effect waves-light btn"
-                href="{% url 'pages:register' %}">Let's go!</a></h5>
+        <br><br>
+        <h5> Ok, for real this time... <a class="btn waves-effect waves-teal" href="{% url 'pages:register' %}"> Let's
+                go!</a></h5>
 
         <br><br><br><br>
-        <!-- <h5> Select an option from the nav bar to begin </h5> -->
     </div>
 </div>
 

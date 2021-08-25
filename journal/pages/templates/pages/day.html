@@ -1,6 +1,6 @@
 {% extends 'pages/base.html' %}
 
-{% block title %} {{user}} {% endblock %}
+{% block title %} ☀️ Day entries for {{user}} {% endblock %}
 
 {% block content %}
 <div class="#fafafa grey lighten-5">
@@ -9,15 +9,15 @@
     <br>
     <br>
     <div class="container">
-
+        <h4> Welcome {{user}}, </h4>
+        <h5> Please fill in the following fields for your morning entry: </h5>
         <form action="{% url 'pages:saveday' %}" method="POST">
             {% csrf_token %}
             <input type=text name="datetime" placeholder="Date Created" class="datepicker">
-            <!-- <input type="date" name="datetime" placeholder="Date Created" required> -->
-            <input type="text" name="prompt_1" placeholder="I am grateful for..." required>
-            <input type="text" name="prompt_2" placeholder="What would make today great?" required>
-            <input type="text" name="prompt_3" placeholder="Daily affirmation. I am..." required>
-            <button class=" black-text btn waves-effect waves-light" type="submit">Create</button>
+            <input type="text" value="I am grateful for " name="prompt_1" required>
+            <input type="text" value="What would make today great: " name="prompt_2" required>
+            <input type="text" value="Daily affirmation: I am " name="prompt_3" required>
+            <button class="btn waves-effect waves-teal" type="submit">Create</button>
 
         </form>
 
@@ -25,8 +25,10 @@
         <br>
 
 
-
-        <ul class="collapsible">
+     
+        <ul class="collapsible popout">
+            <h5> Completed entries: </h5>
+            <br>
             {% for u in user.dayjournal.all %}
             <li>
                 <div class="collapsible-header"><i class="material-icons">brightness_low</i>{{u.date}} - {{u.user}}
@@ -52,17 +54,3 @@
 
 {% endblock %}
 
-<!-- <ul class="collapsible">
-    {% for post in dayposts %}
-    <li>
-        <div class="collapsible-header"><i class="material-icons">brightness_low</i>{{post.date}}</div>
-        <div class="collapsible-body">
-            <span>
-                <p>{{post.prompt_1}}</p>
-                <p>{{post.prompt_2}}</p>
-                <p>{{post.prompt_3}}</p>
-            </span>
-        </div>
-    </li>
-    {% endfor %}
-</ul> -->

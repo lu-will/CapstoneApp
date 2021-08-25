@@ -1,6 +1,6 @@
 {% extends 'pages/base.html' %}
 
-{% block title %} {{user}} {% endblock %}
+{% block title %} 🌛 Evening entries for {{user}} {% endblock %}
 
 
 
@@ -11,21 +11,21 @@
     {% include 'pages/_navbar.html' %}
     <br>
     <br>
-    <div class="container">
-
+    <div class="container ">
+        <h4> Welcome {{user}}, </h4>
+        <h5> Please fill in the following fields for your evening entry: </h5>
         <form action="{% url 'pages:saveevening' %}" method="POST">
             {% csrf_token %}
             <input type=text name="datetime" placeholder="Date Created" class="datepicker">
-            <!-- <input type="date" name="datetime" placeholder="Date Created"> -->
-            <input type="text" name="prompt_1" placeholder="List 3 Amazing things that happened today..">
-            <input type="text" name="prompt_2" placeholder="How could I have made today even better?">
-            <button class="black-text btn waves-effect waves-light" type="submit">Create</button>
+            <input type="text" value="List 3 amazing things that happened today: "name="prompt_1" >
+            <input type="text" value="How could I have made today even better? " name="prompt_2" placeholder="How could I have made today even better?">
+            <button class="btn waves-effect waves-teal" type="submit">Create</button>
         </form>
 
         <br>
         <br>
 
-        <ul class="collapsible">
+        <ul class="collapsible popout">
             {% for u in user.nightjournal.all %}
             <li>
                 <div class="collapsible-header"><i class="material-icons">brightness_2</i>{{u.date}} - {{u.user}}</div>
@@ -45,23 +45,7 @@
     </div>
 </div>
 
-
-
-
 {% endblock %}
 
 
 
-<!-- <ul class="collapsible">
-    {% for post in eveningposts %}
-    <li>
-        <div class="collapsible-header"><i class="material-icons">brightness_2</i>{{post.date}}</div>
-        <div class="collapsible-body">
-            <span>
-            <p>{{post.prompt_1}}</p>
-            <p>{{post.prompt_2}}</p>
-            </span>
-        </div>
-    </li>
-    {% endfor %}
-</ul> -->
