@@ -2,6 +2,7 @@ from django.http.response import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, render, reverse
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
+# from django.contrib.auth.decorators import login_required
 from .models import day, evening
 
 
@@ -29,7 +30,7 @@ def login_user(request):
         if user != None:
             login(request, user)
 
-        return HttpResponseRedirect(reverse('pages:login'))
+        return HttpResponseRedirect(reverse('pages:home'))
 
 # Logout user
 
@@ -52,20 +53,16 @@ def register(request):
         first_name = form['first_name']
         last_name = form['last_name']
 
-        # Evening = evening()
-        # Evening.user = request.user
-        # Evening.save()
-
+      
         user = User.objects.create_user(
             username, email, password, first_name=first_name, last_name=last_name)
 
-        # login(request, user)
 
-        return HttpResponseRedirect(reverse('pages:register'))
+        return HttpResponseRedirect(reverse('pages:login'))
 
 
 # Day Journal Entries
-
+# @login_required
 def dayview(request):
 
     dayposts = day.objects.all()
@@ -106,6 +103,7 @@ def savedayview(request):
 
 
 # Evening Journal Entries
+# @login_required
 def eveningview(request):
     eveningposts = evening.objects.all()
 

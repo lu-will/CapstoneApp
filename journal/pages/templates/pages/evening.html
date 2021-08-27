@@ -6,10 +6,7 @@
 
 {% block content %}
 
-<div class="#fafafa grey lighten-5">
-
     {% include 'pages/_navbar.html' %}
-    <br>
     <br>
     <div class="container ">
         <h4> Welcome {{user}}, </h4>
@@ -19,13 +16,15 @@
             <input type=text name="datetime" placeholder="Date Created" class="datepicker">
             <input type="text" value="List 3 amazing things that happened today: "name="prompt_1" >
             <input type="text" value="How could I have made today even better? " name="prompt_2" placeholder="How could I have made today even better?">
-            <button class="btn waves-effect waves-teal" type="submit">Create</button>
+            <button class="btn deep-orange lighten-1" type="submit">Create</button>
         </form>
 
         <br>
         <br>
 
         <ul class="collapsible popout">
+            <h5> Completed entries: </h5>
+            <br>
             {% for u in user.nightjournal.all %}
             <li>
                 <div class="collapsible-header"><i class="material-icons">brightness_2</i>{{u.date}} - {{u.user}}</div>
@@ -43,7 +42,7 @@
             {% endfor %}
         </ul>
     </div>
-</div>
+
 
 {% endblock %}
 

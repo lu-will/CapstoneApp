@@ -3,7 +3,7 @@
 {% block title %} ☀️ Day entries for {{user}} {% endblock %}
 
 {% block content %}
-<div class="#fafafa grey lighten-5">
+
 
     {% include 'pages/_navbar.html' %}
     <br>
@@ -17,15 +17,13 @@
             <input type="text" value="I am grateful for " name="prompt_1" required>
             <input type="text" value="What would make today great: " name="prompt_2" required>
             <input type="text" value="Daily affirmation: I am " name="prompt_3" required>
-            <button class="btn waves-effect waves-teal" type="submit">Create</button>
+            <button class="btn deep-orange lighten-1" type="submit">Create</button>
 
         </form>
 
         <br>
         <br>
-
-
-     
+   
         <ul class="collapsible popout">
             <h5> Completed entries: </h5>
             <br>
@@ -46,10 +44,8 @@
             {% endfor %}
             {% endfor %}
         </ul>
-
-
     </div>
-</div>
+
 
 
 {% endblock %}

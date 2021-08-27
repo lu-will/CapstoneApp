@@ -2,18 +2,3 @@
   background-color:#fafafa;
 }
 
-.navbar{
-  margin-top: 50px;
-}
-
-
-  /*
-  When creating your CSS selector,
-  change "brown" to something of your choosing
-  */
-  .waves-effect.waves-brown .waves-ripple {
-    /* The alpha value allows the text and background color
-    of the button to still show through. */
-     background-color: rgba(17, 53, 70);
-   }
-           
