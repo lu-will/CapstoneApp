@@ -12,62 +12,65 @@ This will be a journal app that will allow users to provide inputs daily based o
  
 Functionality 
 
-Allow the user to create a profile 
-User will be able to input answer daily journal prompts based on morning or evening
-User will be able to view past posts and sort by date 
-Support for multiple users 
-Random daily quote that appears at the top of the screen (stretch goal)
+-Allow the user to create a profile 
+-User will be able to input answer daily journal prompts based on morning or evening
+-User will be able to view past posts and sort by date 
+-Support for multiple users 
+-Random daily quote that appears at the top of the screen (stretch goal)
 
 Problem trying to solve  
 
 Numerous studies have shown the benefits of journaling and the daily practice of gratitude to improve an individual’s quality of life. Generally the barrier to adopting a new habit is how accessible it is to the person. Since people tend to carry their phones with them at all times, an app based journal would allow for more consistent usage than a paper copy. 
 
-Data Model        
-Profile 
-User’s name
-Password
-Prompt
-Date
-Morning Prompt
-Evening Prompt
-Quotes (Stretch Goal)
-A list of random quotes approx 200 - 300 
+Data Model
+
+-Profile 
+-User’s name
+-Password
+-Prompt
+-Date
+-Morning Prompt
+-Evening Prompt
+-Quotes (Stretch Goal)
+-A list of random quotes approx 200 - 300 
+
 Schedule 
 
 Week 1
-Implement database 
-Create profile model
-User database 
-Create prompt model
-Connect routes for accessing data 
-Create profile 
-Update profile 
-Delete profile 
-Create input fields 
-Date 
-Morning prompt 
-Evening prompt
+
+ Implement database 
+ Create profile model
+ User database 
+ Create prompt model
+ Connect routes for accessing data 
+ Create profile 
+ Update profile 
+ Delete profile 
+ Create input fields 
+ Date 
+ Morning prompt 
+ Evening prompt
 
 Week 2
 
-HTML templates and build framework 
-Register new user tab 
-Navbar for morning and evening 
-Homepage displays dates and pages 
-CSS styling with materialize 
-Add animations depending on time
+ HTML templates and build framework 
+ Register new user tab 
+ Navbar for morning and evening 
+ Homepage displays dates and pages 
+ CSS styling with materialize 
+ Add animations depending on time
 
 Week 3
 
-JavaScript for frontend 
-Include stretch goal if additional time allows for it
-Completed product by end of week  
+ JavaScript for frontend 
+ Include stretch goal if additional time allows for it
+ Completed product by end of week  
 
 Week 4
 
-Last min bug fixes, style changes
-Presentation prep 
+ Last min bug fixes, style changes
+ Presentation prep 
 
 Post bootcamp
 
-Include stretch goal if not already added or automated email reminders 
+ Include stretch goal if not already added or automated email reminders 
