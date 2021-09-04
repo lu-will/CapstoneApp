@@ -53,19 +53,17 @@ def register(request):
         first_name = form['first_name']
         last_name = form['last_name']
 
-      
         user = User.objects.create_user(
             username, email, password, first_name=first_name, last_name=last_name)
-
 
         return HttpResponseRedirect(reverse('pages:login'))
 
 
 # Day Journal Entries
-# @login_required
+
 def dayview(request):
 
-    dayposts = day.objects.all()
+    dayposts = day.objects.all().order_by('-date')
     context = {
         'dayposts': dayposts
     }

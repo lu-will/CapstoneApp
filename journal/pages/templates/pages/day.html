@@ -5,48 +5,48 @@
 {% block content %}
 
 
-    {% include 'pages/_navbar.html' %}
+{% include 'pages/_navbar.html' %}
+<br>
+<br>
+<div class="container">
+    <h4> Welcome {{user}}, </h4>
+    <h5> Please fill in the following fields for your morning entry: </h5>
+    <form action="{% url 'pages:saveday' %}" method="POST">
+        {% csrf_token %}
+        <input type=text name="datetime" placeholder="Date Created" class="datepicker">
+        <input type="text" value="I am grateful for " name="prompt_1" required>
+        <input type="text" value="What would make today great: " name="prompt_2" required>
+        <input type="text" value="Daily affirmation: I am " name="prompt_3" required>
+        <button class="btn deep-orange lighten-1" type="submit">Create</button>
+
+    </form>
+
     <br>
     <br>
-    <div class="container">
-        <h4> Welcome {{user}}, </h4>
-        <h5> Please fill in the following fields for your morning entry: </h5>
-        <form action="{% url 'pages:saveday' %}" method="POST">
-            {% csrf_token %}
-            <input type=text name="datetime" placeholder="Date Created" class="datepicker">
-            <input type="text" value="I am grateful for " name="prompt_1" required>
-            <input type="text" value="What would make today great: " name="prompt_2" required>
-            <input type="text" value="Daily affirmation: I am " name="prompt_3" required>
-            <button class="btn deep-orange lighten-1" type="submit">Create</button>
 
-        </form>
-
+    <ul class="collapsible popout">
+        <h5> Completed entries: </h5>
         <br>
-        <br>
-   
-        <ul class="collapsible popout">
-            <h5> Completed entries: </h5>
-            <br>
-            {% for u in user.dayjournal.all %}
-            <li>
-                <div class="collapsible-header"><i class="material-icons">brightness_low</i>{{u.date}} - {{u.user}}
-                </div>
-                <div class="collapsible-body">
-                    <span>
-                        <p> {{u.prompt_1}} </p>
-                        <p> {{u.prompt_2}} </p>
-                        <p> {{u.prompt_3}} </p>
-                        {% for v in user.dayjournal.currentuser.all%}
-                        <h1> {{v.prompt_1}}</h1>
-                    </span>
-                </div>
-            </li>
-            {% endfor %}
-            {% endfor %}
-        </ul>
-    </div>
-
-
+        {% for u in user.dayjournal.all %}
+        
+        <li>
+            <div class="collapsible-header"><i class="material-icons">brightness_low</i>{{u.date}} - {{u.user}}
+            </div>
+            <div class="collapsible-body">
+                <span>
+                    <p> {{u.prompt_1}} </p>
+                    <p> {{u.prompt_2}} </p>
+                    <p> {{u.prompt_3}} </p>
+                    {% for v in user.dayjournal.currentuser.all%}
+                    <h1> {{v.prompt_1}}</h1>
+                </span>
+            </div>
+        </li>
+        {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
 
 {% endblock %}
+
 
